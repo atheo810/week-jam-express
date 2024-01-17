@@ -9,3 +9,11 @@ datasource db {
   provider = "mysql" // ( sesi-4)
   url      = env("DATABASE_URL")
 }
+
+// make book model 
+model book {
+  id         Int    @id @default(autoincrement())
+  judul_buku String
+  deskripsi  String
+  category   String
+}
