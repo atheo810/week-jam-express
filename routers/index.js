@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   res.json({ message: "Selamat Datang" });
 });
 
-router.use(bookRouter);
+router.use(bookRouter); // use bookRouter ( sesi-6 )
 
 // export router ( sesi-3 )
 module.exports = router;
