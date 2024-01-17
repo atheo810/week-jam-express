@@ -28,5 +28,19 @@ class bookController {
       res.status(400).json({ message: error });
     }
   }
+  // create book ( sesi-8 )
+  static async createBook(req, res) {
+    try {
+      const result = await prisma.book.create({
+        data: {
+          judul_buku: req.body.judul_buku,
+          deskripsi: req.body.deskripsi,
+          category: req.body.category,
+        },
+      });
+    } catch (error) {
+      res.status(400).json({ message: error });
+    }
+  }
 }
 module.exports = bookController;
