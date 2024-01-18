@@ -62,5 +62,18 @@ class bookController {
       res.status(400).json({ message: error });
     }
   }
+  // delete book ( sesi-10 )
+  static async deleteBook(req, res) {
+    try {
+      const result = await prisma.book.delete({
+        where: {
+          id: parseInt(req.params.id),
+        },
+      });
+      res.status(200).json(result);
+    } catch (error) {
+      res.status(400).json({ message: error });
+    }
+  }
 }
 module.exports = bookController;
