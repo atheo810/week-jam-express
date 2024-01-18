@@ -38,6 +38,26 @@ class bookController {
           category: req.body.category,
         },
       });
+      res.status(201).json(result);
+    } catch (error) {
+      res.status(400).json({ message: error });
+    }
+  }
+  // update data book ( sesi-9 )
+  static async updateBook(req, res) {
+    try {
+      const result = await prisma.book.update({
+        where: {
+          id: parseInt(req.params.id),
+        },
+        data: {
+          judul_buku: req.body.judul_buku,
+          deskripsi: req.body.desskripsi,
+          category: req.body.category,
+        },
+      });
+
+      res.status(201).json(result);
     } catch (error) {
       res.status(400).json({ message: error });
     }
